@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+<style media="screen">
+
+
+
+.infobox
+{
+
+margin-bottom:10px;
+border:none;
+border:1px solid white;
+font-weight:bold;
+
+}
+
+.template
+{
+  padding:20px 0 20px 0;
+  background-image: linear-gradient(to right top, #ff0064, #ff5534, #ff8f00, #dfc000, #a8eb12);
+  border-radius:10px;
+}
+
+#creditext
+{
+  text-align:center;
+  color:white;
+  font-size:10px;
+
+}
+
+p,h1,h2,h3,h4,h5,h6
+{
+  color:white;
+}
+
+input[type='text']
+{
+  color:white;
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+    <div class="container" ng-app="">
+
+
+        <div class="row">
+
+
+        <div class="col" style="background-color: antiquewhite;" >
+
+            <input type="file" id="file-upload" onchange="readURL(this);"><br>
+            <input type="text" placeholder="Enter your Name"  ng-model="name"><br>
+            <input type="text" placeholder="Enter Designation"  ng-model="des"><br>
+            <input type="text" placeholder="Enter Mobile No."  ng-model="phone"><br>
+            <input type="text" placeholder="Enter Mail"  ng-model="email"><br>
+            <input type="text" placeholder="Enter Website"  ng-model="web"><br>
+
+        </div>
+
+
+        <div class="col">
+
+
+            <div class="template">
+                <div class="text-center">
+                <img src="./img/man.png" style="text-align:center;border-radius:50%" id="blah" >
+
+                <h5>{{name}}</h5>
+                <p><strong>{{des}}</strong></p>
+
+                <a href="tel:{{phone}}"><img src="./img/phone-call.png"></a>
+                <a href="mailto:{{email}}"><img src="./img/email.png"></a>
+                <a href="https://{{web}}"><img src="./img/web.png"></a><br><br>
+
+                <input type="text"   value="{{phone}}" disabled class="infobox" style="text-align:center;border-radius:10px"><br>
+                <input type="text"  value="{{email}}" disabled class="infobox" style="text-align:center;border-radius:10px"><br>
+                <input type="text"  value="{{web}}" disabled class="infobox" style="text-align:center;border-radius:10px"><br>
+
+            </div>
+
+              <p id="creditext">Created By : Prashant Ujjainkar</p>
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+    </div>
+
+
+    <script>
+
+
+  function readURL(input) {
+  if (input.files && input.files[0]) {
+  var reader = new FileReader();
+
+  reader.onload = function (e) {
+    $('#blah')
+        .attr('src', e.target.result)
+        .width(100)
+        .height(100);
+  };
+
+  reader.readAsDataURL(input.files[0]);
+  }
+  }
+
+
+    </script>
+
+    <script defer src="https://cdn.crop.guide/loader/l.js?c=123ABC"></script>
+
+
+</body>
+</html>
